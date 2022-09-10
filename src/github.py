@@ -3,7 +3,7 @@ from __future__ import annotations
 import logging
 import urllib.parse
 
-from typing import Any, Dict
+from typing import Any, Dict, Optional
 
 import httpx
 
@@ -101,7 +101,7 @@ async def get_user(access_token: str) -> dict:
 
 
 @router.get("/")
-async def github():
+async def github(redirect_url: Optional[str] = Query(None)):
     """\f
     https://docs.github.com/cn/developers/apps/building-oauth-apps/authorizing-oauth-apps
     """
@@ -109,7 +109,7 @@ async def github():
     authorize_url = "https://github.com/login/oauth/authorize"
     params = {
         "client_id": OauthAppConfig().github_client_id,
-        "redirect_uri": OauthAppConfig().github_redirect_uri,
+        "redirect_uri": redirect_url or OauthAppConfig().github_redirect_uri,
         "scope": "user:email"
     }
     redirect_url = f"{authorize_url}?{urllib.parse.urlencode(params)}"

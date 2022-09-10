@@ -1,7 +1,7 @@
 .PHONY: default format mypy build push
 
 
-IMAGE_NAME := clpy9793/oauth-playground
+IMAGE_NAME := qsoyq/oauth-playground
 
 default: format build push
 
@@ -23,4 +23,3 @@ build:
 
 push:
 	docker push $(IMAGE_NAME)
-	curl https://api.day.app/W8sgxw7Nti7js3y6LF2SLY/oauth-playground%20push%20success
