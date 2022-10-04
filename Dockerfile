@@ -7,7 +7,7 @@ WORKDIR /app/
 ENV PYTHONPATH="/app:${PYTHONPATH}"
 
 COPY pyproject.toml pyproject.toml
-p
+
 COPY poetry.lock poetry.lock
 
 RUN pip install poetry -i https://mirrors.aliyun.com/pypi/simple
