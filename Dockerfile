@@ -7,7 +7,7 @@ WORKDIR /app/
 ENV PYTHONPATH="/app:${PYTHONPATH}"
 
 COPY pyproject.toml pyproject.toml
-
+p
 COPY poetry.lock poetry.lock
 
 RUN pip install poetry -i https://mirrors.aliyun.com/pypi/simple
@@ -21,5 +21,7 @@ COPY src /app/
 RUN mkdir -p /logs
 
 EXPOSE 8000
+
+RUN python -m pretty_errors -u -p 
 
 CMD python main.py -p 8000
