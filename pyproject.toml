@@ -68,11 +68,7 @@ name = "project"
 version = "0.1.0"
 description = ""
 authors = ["wangqs <wqs1639@gmail.com>"]
-
-[[tool.poetry.source]]
-name = "aliyun"
-url = "https://mirrors.aliyun.com/pypi/simple/"
-default = true
+package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -91,6 +87,7 @@ hypercorn = "^0.13.2"
 pretty-errors = "^1.2.25"
 typer = { version = "^0.4.0", extras = ["all"] }
 fastapi = {version = "^0.79.0", extras = ["all"]}
+PyYAML = {version = '^6'}
 
 [tool.poetry.dev-dependencies]
 types-redis = "^4.1.10"
@@ -99,7 +96,7 @@ mypy = "^0.931"
 isort = "^5.10.1"
 yapf = "^0.32.0"
 sqlalchemy-stubs = "^0.4"
-pycln = "1.1.0"
+pycln = "^1"
 pre-commit = "^2.17.0"
 ipython = "^8.0.1"
 grpcio-tools = "^1.44.0"
