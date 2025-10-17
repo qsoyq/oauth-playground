@@ -10,11 +10,11 @@ COPY pyproject.toml pyproject.toml
 
 COPY poetry.lock poetry.lock
 
-RUN pip install poetry -i https://mirrors.aliyun.com/pypi/simple
+RUN pip install poetry
 
 RUN poetry config virtualenvs.create false
 
-RUN poetry install --no-dev
+RUN poetry install --without dev
 
 COPY src /app/
 
@@ -24,4 +24,4 @@ EXPOSE 8000
 
 RUN python -m pretty_errors -u -p 
 
-CMD python main.py -p 8000
+CMD python main.py
