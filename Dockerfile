@@ -1,20 +1,15 @@
-FROM python:3.10
+FROM python:3.10.17
+# TODO: upgrade base image
 
 ENV TZ=Asia/Shanghai
 
 WORKDIR /app/
 
-ENV PYTHONPATH="/app:${PYTHONPATH}"
-
 COPY pyproject.toml pyproject.toml
 
-COPY poetry.lock poetry.lock
+RUN pip install uv
 
-RUN pip install poetry
-
-RUN poetry config virtualenvs.create false
-
-RUN poetry install --without dev
+RUN uv sync
 
 COPY src /app/
 
@@ -22,6 +17,4 @@ RUN mkdir -p /logs
 
 EXPOSE 8000
 
-RUN python -m pretty_errors -u -p 
-
-CMD python main.py
+CMD ["uv", "run", "python", "main.py", "-p", "8000"]

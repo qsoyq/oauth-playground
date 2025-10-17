@@ -1,3 +1,43 @@
+[project]
+name = "oauth-playground"
+version = "0.1.0"
+description = "oauth-playground"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "uvicorn",
+    "redis",
+    "sqlalchemy",
+    "aioredis",
+    "python-multipart",
+    "pymysql",
+    "aiomysql",
+    "pytest",
+    "pyjwt",
+    "aiosqlite",
+    "httpx[http2,socks]",
+    "hypercorn",
+    "pretty-errors",
+    "typer",
+    "fastapi[all]",
+    "PyYAML",
+    "types-redis",
+    "types-requests",
+    "mypy",
+    "isort",
+    "yapf",
+    "sqlalchemy-stubs",
+    "pycln",
+    "pre-commit",
+    "ipython",
+    "grpcio-tools",
+    "mypy-protobuf",
+    "diagrams",
+    "scalene",
+    "pytest-asyncio",
+    "mkdocs-material",    
+]
+
 [tool.isort]
 # https://pycqa.github.io/isort/docs/configuration/options.html
 # profile = "hug"
@@ -63,49 +103,3 @@ ignore_missing_imports = true
 [tool.pycln]
 all = true
 
-[tool.poetry]
-name = "project"
-version = "0.1.0"
-description = ""
-authors = ["wangqs <wqs1639@gmail.com>"]
-package-mode = false
-
-[tool.poetry.dependencies]
-python = "^3.10"
-uvicorn = "^0.17.0"
-redis = "^4.1.1"
-sqlalchemy = "^1.4.31"
-aioredis = "^2.0.1"
-python-multipart = "^0.0.5"
-pymysql = "^0.9"
-aiomysql = "^0.0.22"
-pytest = "^6.2.5"
-pyjwt = "^2.3.0"
-aiosqlite = "^0.17.0"
-httpx = { version = "^0.22.0", extras = ["http2", "socks"] }
-hypercorn = "^0.13.2"
-pretty-errors = "^1.2.25"
-typer = { version = "^0.4.0", extras = ["all"] }
-fastapi = {version = "^0.79.0", extras = ["all"]}
-PyYAML = {version = '^6'}
-
-[tool.poetry.group.dev.dependencies]
-types-redis = "^4.1.10"
-types-requests = "^2.27.7"
-mypy = "^0.931"
-isort = "^5.10.1"
-yapf = "^0.32.0"
-sqlalchemy-stubs = "^0.4"
-pycln = "^1"
-pre-commit = "^2.17.0"
-ipython = "^8.0.1"
-grpcio-tools = "^1.44.0"
-mypy-protobuf = "^3.2.0"
-diagrams = "^0.21.1"
-scalene = "^1.5.4"
-pytest-asyncio = "^0.18.2"
-mkdocs-material = "^8.2.5"
-
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
